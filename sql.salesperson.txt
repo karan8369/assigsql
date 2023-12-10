@@ -1,0 +1,19 @@
+1.select count(*),from salepeople
+where sname like '$a';
+ 
+2.select s.sname,s.snum
+from salesperson s
+group by s.sname,snum
+having sum(amt) > 2000;
+ 
+3.select count(*) from salesperson
+where city = "neywork";
+ 
+4.select  city, count(*) as num_salepeople
+from salesperson where city in (paris,london)
+group by city;
+
+5.select,  s.sname,s.snum,count(*) as num_orders, o.odate
+from salesperson s
+join orders o on s.snum = o.snum 
+group by  s.sname,s.snum, o.odate
